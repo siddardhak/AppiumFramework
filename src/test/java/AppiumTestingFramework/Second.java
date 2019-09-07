@@ -33,6 +33,8 @@ class Second extends Base{
 		touchactions.tap(tapOptions().withElement(element(list))).perform();
 		WebElement list1=driver.findElementByXPath("//android.widget.TextView[@text='People Names']");
 		touchactions.longPress(longPressOptions().withElement(element(list1))).release().perform();
+		
+		//findElementByAndroidUiAutomator("new UiSelector().property")
 		System.out.println(driver.findElementById("android:id/title").isDisplayed());
 		
 
