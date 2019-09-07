@@ -2,8 +2,15 @@ package AppiumTestingFramework;
 
 import java.net.MalformedURLException;
 
+import org.openqa.selenium.WebElement;
+
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import static io.appium.java_client.touch.offset.ElementOption.element;
 import io.appium.java_client.android.AndroidElement;
+import static io.appium.java_client.touch.LongPressOptions.longPressOptions;
+import static java.time.Duration.ofSeconds;
+
 
 public class Swiping extends Base{
 
@@ -17,15 +24,10 @@ public class Swiping extends Base{
 		driver.findElementByAndroidUIAutomator("text(\"Date Widgets\")").click();
 		driver.findElementByAndroidUIAutomator("text(\"2. Inline\")").click();
 		driver.findElementByXPath("//*[@content-desc='5']").click();
-		try {
-			Thread.sleep(10);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-
+		TouchAction touchaction= new TouchAction(driver);
+		WebElement time=driver.findElementByXPath("//*[@content-desc='15']");
+		WebElement timeq=driver.findElementByXPath("//*[@content-desc='45']");
+		touchaction.longPress(longPressOptions().withElement(element(time)).withDuration(ofSeconds(2))).moveTo(element(timeq)).release().perform();
 	}
 
 }
