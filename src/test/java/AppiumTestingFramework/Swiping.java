@@ -19,7 +19,7 @@ public class Swiping extends Base{
 		
 		AndroidDriver<AndroidElement> driver=Capabilities();
 		
-		//identify the attribute
+		//identify attribute
 		driver.findElementByAndroidUIAutomator("text(\"Views\")").click();
 		driver.findElementByAndroidUIAutomator("text(\"Date Widgets\")").click();
 		driver.findElementByAndroidUIAutomator("text(\"2. Inline\")").click();
